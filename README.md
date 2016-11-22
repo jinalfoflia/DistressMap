@@ -1,8 +1,9 @@
-# Fieldnotes
-![]()
-A map tool to easily corwdsource notes from the field.
+## Distress Map
+
+This map will allow anyone to share their story of abuse/violence/incidents anonymously and place a marker at that particular location and give a platform to share their stories to the world. The first step to deal with any problem is to accept it and share it with people.
 
 ## Features
+
 - Customize and deploy the entire tool for a reporting project within minutes
 - Customizable basemap style and data using [Mapbox](https://www.mapbox.com)
 - Mobile friendly interface
