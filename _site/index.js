@@ -93,7 +93,7 @@ map.on('style.load', function(e) {
 
             function overlayFeatureForm(feature) {
                   var formOptions = "<div class='radio-pill pill pad1y clearfix'><input id='safe' type='radio' name='review' value='safe' checked='checked'><label for='safe' class='short button icon check fill-green'>Safe</label><input id='unsafe' type='radio' name='review' value='unsafe'><label for='unsafe' class='short button icon check fill-red'>Danger</label></div>";
-                var formReviewer = "<fieldset><label> Your Story: <span id='reviewer' style='padding:5px;background-color:#eee'></span></label><input type='text' name='reviewer' placeholder='Share your story with the world'></input></fieldset>"
+                var formReviewer = "<fieldset><label> Your Story: <span id='reviewer' style='padding:5px;background-color:#eee'></span></label><textarea name='reviewer' placeholder='Share your story with the world'></textarea></fieldset>"
                 var popupHTML = "<form>" + formOptions + formReviewer + "<a id='updateOverlayFeature' class='button col4' href='#'>Save</a><a id='deleteOverlayFeature' class='button quiet fr col4' href='#' style=''>Delete</a></form>";
                 var popup = new mapboxgl.Popup()
                     .setLngLat(e.lngLat)
