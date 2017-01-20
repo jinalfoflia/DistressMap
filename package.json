@@ -14,5 +14,8 @@
     "browserify": "^13.3.0",
     "serve": "^2.4.2",
     "watchify": "^3.8.0"
+  },
+  "dependencies": {
+    "hat": "0.0.3"
   }
 }

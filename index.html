@@ -1,39 +1,38 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-    <title>DistressMap</title>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="description" content="Crowdsoucred field reporting tool using open maps">
-    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
-    <!-- JQuery -->
-    <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
-    <!-- Mapbox -->
-    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.19.1/mapbox-gl.js'></script>
-    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.19.1/mapbox-gl.css' rel='stylesheet' />
-    <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v1.0.0/mapbox-gl-geocoder.js'></script>
-    <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v1.0.0/mapbox-gl-geocoder.css' type='text/css' />
-    <link href="https://www.mapbox.com/base/latest/base.css" rel="stylesheet">
-    <link rel='stylesheet' href='/custom.css' type='text/css' />
-</head>
-
-<body>
-    <!--[if lt IE 8]>
-  <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-<![endif]-->
-    <header class="sidebar pin-topleft z10 pad1">
-        <div class="sidebar-inner dark round">
-            <div class="pad2x pad1y space-bottom1">
-                <h2 class='fancy'>Distress Map</h2>
-                <h3>Click on the map and distress yourself <br> by sharing your story of abuse or harrasment <br> or any incident that you want the world to know!</h3>
+<!doctype html>
+<html lang='en'>
+    <head>
+        <meta charset='utf-8'>
+        <meta http-equiv='x-ua-compatible' content='ie=edge'>
+        <meta name='description' content='Crowdsoucred field reporting tool using open maps'>
+        <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+        <title>DistressMap</title>
+        <!-- JQuery -->
+        <script src='https://code.jquery.com/jquery-3.1.0.min.js' integrity='sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=' crossorigin='anonymous'></script>
+        <!-- Mapbox GL JS -->
+        <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.19.1/mapbox-gl.js'></script>
+        <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.19.1/mapbox-gl.css' rel='stylesheet' />
+        <!-- Geocoder -->
+        <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v1.0.0/mapbox-gl-geocoder.js'></script>
+        <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v1.0.0/mapbox-gl-geocoder.css' type='text/css' />
+        <!-- Styles -->
+        <link href='https://www.mapbox.com/base/latest/base.css' rel='stylesheet'>
+        <link rel='stylesheet' href='index.css' type='text/css' />
+    </head>
+    <body>
+        <!--[if lt IE 8]>
+            <p class='browserupgrade'>You are using an <strong>outdated</strong> browser. Please <a href='http://browsehappy.com/'>upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <header class='sidebar pin-topleft z10 pad1'>
+            <div class='sidebar-inner dark round'>
+                <div class='pad2x pad1y space-bottom1'>
+                    <h2 class='fancy'>Distress Map</h2>
+                    <h3>Click on the map and destress yourself <br> by sharing your story of abuse or harrasment <br> or any incident that you want the world to know!</h3>
+                </div>
             </div>
+        </header>
+        <div class='col12 clearfix'>
+            <div id='map' class=''></div>
         </div>
-    </header>
-    <div class='col12 clearfix'>
-        <div id='map' class=''></div>
-    </div>
-    <script src="build.js"></script>
-</body>
-
+        <script src='build.js'></script>
+    </body>
 </html>
