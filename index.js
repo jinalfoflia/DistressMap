@@ -40,7 +40,10 @@ map.on('load', function() {
 function setupMap() {
     map.addSource('stories-source', {
         'type': 'geojson',
-        'data': storiesFeatureCollection
+        'data': storiesFeatureCollection,
+        'cluster': true,
+        'clusterMaxZoom': 14,
+        'clusterRadius': 50
     });
 
     map.addLayer({
@@ -49,7 +52,34 @@ function setupMap() {
         'source': 'stories-source',
         'layout': {
             'icon-image': 'marker-15'
-        }
+        },
+        'filter': ['!has', 'point_count']
+    });
+
+
+    map.addLayer({
+        'id': 'stories-cluster-circles',
+        'type': 'circle',
+        'source': 'stories-source',
+        'paint': {
+          'circle-radius': 18,
+          'circle-color': '#f1f075',
+        },
+        'filter': ['has', 'point_count']
+    });
+
+    map.addLayer({
+      'id': 'stories-cluster-labels',
+      'type': 'symbol',
+      'source': 'stories-source',
+      'layout': {
+        'text-field': '{point_count}',
+        'text-font': [
+            'DIN Offc Pro Medium',
+            'Arial Unicode MS Bold',
+        ],
+        'text-size': 12,
+      }
     });
 
     map.on('click', function(e) {
