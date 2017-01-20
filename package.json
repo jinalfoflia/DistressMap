@@ -1,26 +1,18 @@
 {
-  "name": "osm-navigation-map",
+  "name": "distress-map",
   "version": "0.0.1",
-  "description": "A map style to explore and improve navigation data on OpenStreetMap",
-  "main": "index.js",
+  "description": "A map to allow anyone to share their story of abuse/violence/incidents anonymously",
+  "private": true,
   "scripts": {
-    "start": "npm run build & jekyll serve",
-    "build": "watchify index.js -o build.js -v",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "npm run watch & serve .",
+    "watch": "watchify index.js -o build.js -v",
+    "build": "browserify index.js -o build.js -v"
   },
-  "repository": {
-    "type": "git",
-    "url": "osm-navigation-map"
-  },
-  "keywords": [
-    "osm",
-    "navigation",
-    "map"
-  ],
-  "author": "Mapbox",
-  "license": "ISC",
-  "dependencies": {
-    "mapbox": "^0.12.0",
-    "watchify": "^3.7.0"
+  "author": "Jinal Foflia",
+  "license": "MIT",
+  "devDependencies": {
+    "browserify": "^13.3.0",
+    "serve": "^2.4.2",
+    "watchify": "^3.8.0"
   }
 }
