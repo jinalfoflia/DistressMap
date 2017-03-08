@@ -122,14 +122,24 @@ function setupMap() {
     });
 
     map.on('click', function(e) {
-        var clickedFeatures = map.queryRenderedFeatures([
+        var clickedMarkers = map.queryRenderedFeatures([
             [e.point.x - 5, e.point.y - 5],
             [e.point.x + 5, e.point.y + 5]
         ], { layers: ['stories-markers'] });
 
-        if (clickedFeatures.length) {
-            var clickedFeature = clickedFeatures[0];
-            viewStory(e, clickedFeature);
+        var clickedClusters = map.queryRenderedFeatures([
+            [e.point.x - 5, e.point.y - 5],
+            [e.point.x + 5, e.point.y + 5]
+        ], { layers: ['stories-cluster-circles'] });
+
+        if (clickedMarkers.length) {
+            var clickedMarker = clickedMarkers[0];
+            viewStory(e, clickedMarker);
+        } else if (clickedClusters.length) {
+            map.flyTo({
+                center: e.lngLat,
+                zoom: map.getZoom() + 2
+            });
         } else {
             addStory(e);
         }
