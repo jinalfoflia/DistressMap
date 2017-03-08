@@ -102,7 +102,7 @@ function setupMap() {
                     [{ zoom: 7, value: 5}, 25],
                 ]
             },
-            'circle-stroke-color': 'rgba(255,255,255,0.75)',
+            'circle-stroke-color': 'rgba(255,255,255,0.8)',
             'circle-stroke-width': 2
         },
         'filter': ['has', 'point_count']
