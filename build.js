@@ -14,7 +14,7 @@ var STORIES_DATASET_URL = 'https://z2ny0kupj7.execute-api.us-east-1.amazonaws.co
 // 3. Customize your map style and location
 var map = new mapboxgl.Map({
     container: 'map', // container id
-    style: 'mapbox://styles/mapbox/dark-v9', //stylesheet location
+    style: 'mapbox://styles/jinalfoflia/cj00z1rx500nw2smwz881l75x', //stylesheet location
     center: [1.775,30.134], // starting position
     zoom: 2.1, // starting zoom
     hash: true // show zoom/lat/lon in the url
@@ -55,10 +55,26 @@ function setupMap() {
         'type': 'symbol',
         'source': 'stories-source',
         'layout': {
-            'icon-image': 'marker-15'
+            'icon-image': 'marker-30'
         },
         'filter': ['!has', 'point_count']
     });
+
+    /*
+    //Showing individual markers as circles
+    map.addLayer({
+        'id': 'stories-markers',
+        'type': 'circle',
+        'source': 'stories-source',
+        'paint': {
+            'circle-color': '#FF7F50',
+            'circle-radius': 5,
+            'circle-stroke-color': 'rgba(255,255,255,0.75)',
+            'circle-stroke-width': 4
+        },
+        'filter': ['!has', 'point_count']
+    });
+    */
 
 
     map.addLayer({
@@ -66,15 +82,28 @@ function setupMap() {
         'type': 'circle',
         'source': 'stories-source',
         'paint': {
-          'circle-radius': 18,
-          'circle-color': {
-            'property': 'point_count',
-            'stops': [
-              [0, '#51bbd6'],
-              [10, '#f1f075'],
-              [20, '#f28cb1'],
-            ]
-          }
+            'circle-color': {
+                property: 'point_count',
+                type: 'exponential',
+                stops: [
+                    [{ zoom: 1, value: 5}, '#ffebb8'],
+                    [{ zoom: 1, value: 20}, '#ff8441'],
+                    [{ zoom: 7, value: 1}, '#ffebb8'],
+                    [{ zoom: 7, value: 5}, '#ff8441']
+                ]
+            },
+            'circle-radius': {
+                property: "point_count",
+                type: "exponential",
+                stops: [
+                    [{ zoom: 1, value: 5}, 10],
+                    [{ zoom: 1, value: 20}, 25],
+                    [{ zoom: 7, value: 1}, 10],
+                    [{ zoom: 7, value: 5}, 25],
+                ]
+            },
+            'circle-stroke-color': 'rgba(255,255,255,0.75)',
+            'circle-stroke-width': 2
         },
         'filter': ['has', 'point_count']
     });
@@ -86,7 +115,7 @@ function setupMap() {
       'layout': {
         'text-field': '{point_count}',
         'text-font': [
-            'DIN Offc Pro Medium',
+            'DIN Offc Pro Bold',
             'Arial Unicode MS Bold',
         ],
         'text-size': 12,
