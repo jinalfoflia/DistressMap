@@ -136,20 +136,11 @@ function addStory(e) {
     +     "<textarea name='story' placeholder='Share your story with the world' class='width36'></textarea>"
     + "</fieldset>";
 
-     var formRating = ""
-    + "<div class='radio-pill pill pad1y clearfix'>"
-    +     "<input id='safe' type='radio' name='rating' value='safe'>"
-    +     "<label for='safe' class='short button icon check'>Safe</label>"
-    +     "<input id='unsafe' type='radio' name='rating' value='unsafe'>"
-    +     "<label for='unsafe' class='short button icon check'>Unsafe</label>"
-    + "</div>";
-
     var formActions = ""
     + "<a id='add-story' class='button col4' href='#'>Save</a>";
 
     var popupHTML = ""
     + "<form class='width40 pad2'>"
-    +   formRating
     +   formStory
     +   formActions
     + "</form>";
@@ -172,7 +163,6 @@ function addStory(e) {
                 ]
             },
             properties: {
-               // rating: $('input[name=rating]').val(),
                 story: $('textarea[name=story]').val(),
                 timestamp: Date.now()
             }
