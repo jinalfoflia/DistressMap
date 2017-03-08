@@ -66,7 +66,14 @@ function setupMap() {
         'source': 'stories-source',
         'paint': {
           'circle-radius': 18,
-          'circle-color': '#f1f075',
+          'circle-color': {
+            'property': 'point_count',
+            'stops': [
+              [0, '#51bbd6'],
+              [10, '#f1f075'],
+              [20, '#f28cb1'],
+            ]
+          }
         },
         'filter': ['has', 'point_count']
     });
