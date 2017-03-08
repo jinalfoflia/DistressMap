@@ -21,8 +21,11 @@ var map = new mapboxgl.Map({
 });
 
 // 4. Add geolocation and navigation plugins
-map.addControl(new mapboxgl.Geolocate({ position: 'bottom-right' }));
-map.addControl(new mapboxgl.Navigation());
+map.addControl(new mapboxgl.NavigationControl());
+map.addControl(new mapboxgl.GeolocateControl());
+
+var geocoder = new MapboxGeocoder({ accessToken: mapboxgl.accessToken });
+document.getElementById('geocoder').appendChild(geocoder.onAdd(map));
 
 // 5. Global variables
 var storiesFeatureCollection = {
@@ -137,20 +140,11 @@ function addStory(e) {
     +     "<textarea name='story' placeholder='Share your story with the world' class='width36'></textarea>"
     + "</fieldset>";
 
-   var formRating = ""
-    + "<div class='radio-pill pill pad1y clearfix'>"
-    +     "<input id='safe' type='radio' name='rating' value='safe'>"
-    +     "<label for='safe' class='short button icon check'>Safe</label>"
-    +     "<input id='unsafe' type='radio' name='rating' value='unsafe'>"
-    +     "<label for='unsafe' class='short button icon check'>Unsafe</label>"
-    + "</div>";
-
     var formActions = ""
     + "<a id='add-story' class='button col4' href='#'>Save</a>";
 
     var popupHTML = ""
     + "<form class='width40 pad2'>"
-    +   formRating
     +   formStory
     +   formActions
     + "</form>";
@@ -173,7 +167,6 @@ function addStory(e) {
                 ]
             },
             properties: {
-                rating: $('input[name=rating]').val(),
                 story: $('textarea[name=story]').val(),
                 timestamp: Date.now()
             }
