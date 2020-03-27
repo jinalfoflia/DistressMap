@@ -5,7 +5,7 @@ var hat = require('hat');
 
 // Setup
 // 1. Signup for a Mapbox account and add your public token https://www.mapbox.com/studio/account/tokens/
-mapboxgl.accessToken = 'pk.eyJ1IjoiamluYWxmb2ZsaWEiLCJhIjoiOE53X2toRSJ9.2aMeuYERrEvKHul16lAJjA';
+mapboxgl.accessToken = 'pk.eyJ1IjoiamluYWxmb2ZsaWEiLCJhIjoiY2s4OXRod2NzMDMwMDNnbGxxMjVuMHk1biJ9.7O1480XqZatxkUK8eP1dGQ';
 
 // 2. URL to fetch stories
 var STORIES_DATASET_URL = 'https://z2ny0kupj7.execute-api.us-east-1.amazonaws.com/testing/features';
